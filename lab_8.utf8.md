@@ -1,6 +1,6 @@
 ---
 title             : "Lab 8 Group Committing to github"
-shorttitle        : "pay no attention to the tibble behind the curtain..."
+shorttitle        : "pay no attention to the tibble behind the curtain"
 
 author: 
   - name          : "Janette Avelar"
@@ -60,59 +60,36 @@ classoption       : "man"
 output            : papaja::apa6_pdf
 ---
 
-```{r setup, include = FALSE}
-library("papaja")
-r_refs("r-references.bib")
-```
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(echo = FALSE,
-                      eval = TRUE,
-                      fig.width = 6.5,
-                      fig.height = 8)
-```
 
-``` {r loading in data}
-library(here)
-library(rio)
-library(tidyverse)
-star <- import(here("data", "star.csv"))
-```
 
-``` {r tablecode}
-star %>% 
-  filter(tmathss <= mean(tmathss) + 3*sd(tmathss) &
-         tmathss >= mean(tmathss) - 3*sd(tmathss)) %>% 
-  nrow()
-
-star <- star %>% 
-  mutate(stand_math = (tmathss - mean(tmathss)) / sd(tmathss),
-         stand_rdg  = (treadss - mean(treadss)) / sd(treadss))
-
-star %>% 
-  group_by(sex, frl) %>% 
-  summarize(math_mean = mean(stand_math),
-            math_sd   = sd(stand_math),
-            rdg_mean = mean(stand_rdg),
-            rdg_sd   = sd(stand_rdg))
-```
-
-``` {r graph}
-
-ggplot(star, aes(totexp, tmathss)) +
-  geom_point(color = "gray40") +
-  geom_smooth(method = "lm", aes(color = frl)) +
-  labs(x = "Teacher Experience (years)",
-       y = "Total Math Scale Score",
-       title = "Relation between teacher experience and math scores",
-       subtitle = "Separate regression lines displayed by free/reduced lunch status", 
-       color = "Lunch status") +
-  theme(legend.position = "bottom")
 
 
 ```
+## Warning: package 'here' was built under R version 4.0.3
+```
+
+```
+## Warning: package 'rio' was built under R version 4.0.3
+```
+
+```
+## Warning: package 'tidyverse' was built under R version 4.0.3
+```
+
+
+```
+## # A tibble: 4 x 6
+## # Groups:   sex [2]
+##   sex   frl   math_mean math_sd read_mean read_ss
+##   <chr> <chr>     <dbl>   <dbl>     <dbl>   <dbl>
+## 1 boy   no         493.    46.3      441.    32.3
+## 2 boy   yes        470.    46.1      425.    26.6
+## 3 girl  no         501.    46.0      449.    34.5
+## 4 girl  yes        478.    46.3      431.    27.4
+```
+
+![ ](lab_8_files/figure-latex/graph-1.pdf) 
 
 # Summary Statistics Table
 
@@ -128,7 +105,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 ## Procedure
 
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
+We used R [Version 4.0.2; @R-base] and the R-packages *}dplyr* [@}R-dplyr], *forcats* [Version 0.5.0; @R-forcats], *foreign* [Version 0.8.80; @R-foreign], *ggplot2* [Version 3.3.2; @R-ggplot2], *here* [Version 0.1; @R-here], *openxlsx* [Version 4.2.2; @R-openxlsx], *packrat* [@R-packrat], *papaja* [Version 0.1.0.9997; @R-papaja], *purrr* [Version 0.3.4; @R-purrr], *readr* [Version 1.3.1; @R-readr], *rio* [Version 0.5.16; @R-rio], *stringr* [Version 1.4.0; @R-stringr], *tibble* [Version 3.0.3; @R-tibble], *tidyr* [Version 1.1.2; @R-tidyr], and *tidyverse* [Version 1.3.0; @R-tidyverse] for all our analyses.
 
 
 # Results
