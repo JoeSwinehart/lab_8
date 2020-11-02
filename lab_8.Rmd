@@ -76,6 +76,8 @@ knitr::opts_chunk$set(echo = FALSE,
 
 ``` {r loading in data}
 library(here)
+library(rio)
+library(tidyverse)
 star <- import(here("data", "star.csv"))
 ```
 
