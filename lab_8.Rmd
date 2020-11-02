@@ -104,9 +104,10 @@ ggplot(star, aes(totexp, tmathss)) +
   labs(x = "Teacher Experience (years)",
        y = "Total Math Scale Score",
        title = "Relation between teacher experience and math scores",
-       subtitle = "Separate regression lines displayed by free/reduced lunch status", 
-       color = "Lunch status") +
-  theme(legend.position = "bottom")
+       subtitle = "Separate regression lines displayed by free/reduced lunch status") +
+  theme(legend.position = "bottom") +
+  guides(fill = "none") +
+  scale_fill_discrete(name = "Lunch status", labels = c("Free/Reduced Price Meals", "Paid Meals"))
 
 
 ```

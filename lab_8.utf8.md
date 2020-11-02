@@ -47,7 +47,7 @@ keywords          : "teacher, experience, lunch, math, scores"
 
 bibliography      : ["r-references.bib"]
 
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -78,20 +78,33 @@ output            : papaja::apa6_pdf
 ```
 
 
-```
-## # A tibble: 4 x 6
-## # Groups:   sex [2]
-##   sex   frl   math_mean math_sd read_mean read_ss
-##   <chr> <chr>     <dbl>   <dbl>     <dbl>   <dbl>
-## 1 boy   no         493.    46.3      441.    32.3
-## 2 boy   yes        470.    46.1      425.    26.6
-## 3 girl  no         501.    46.0      449.    34.5
-## 4 girl  yes        478.    46.3      431.    27.4
-```
+\begin{table}[tbp]
+
+\begin{center}
+\begin{threeparttable}
+
+\caption{\label{tab:tablecode}}
+
+\begin{tabular}{llllll}
+\toprule
+sex & \multicolumn{1}{c}{frl} & \multicolumn{1}{c}{math\_mean} & \multicolumn{1}{c}{math\_sd} & \multicolumn{1}{c}{read\_mean} & \multicolumn{1}{c}{read\_ss}\\
+\midrule
+boy & no & 492.85 & 46.34 & 441.46 & 32.32\\
+boy & yes & 469.87 & 46.09 & 425.38 & 26.63\\
+girl & no & 501.21 & 45.96 & 448.54 & 34.52\\
+girl & yes & 477.51 & 46.30 & 430.80 & 27.42\\
+\bottomrule
+\end{tabular}
+
+\end{threeparttable}
+\end{center}
+
+\end{table}
+
+\newpage
 
 ![ ](lab_8_files/figure-latex/graph-1.pdf) 
 
-# Summary Statistics Table
 
 
 
@@ -100,17 +113,28 @@ We report how we determined our sample size, all data exclusions (if any), all m
 
 ## Participants
 
+There were some people involved.
+
 ## Material
 
+Here's some words.
+
 ## Procedure
+
+We did things and we did them well.
 
 ## Data analysis
 We used R [Version 4.0.2; @R-base] and the R-packages *}dplyr* [@}R-dplyr], *forcats* [Version 0.5.0; @R-forcats], *foreign* [Version 0.8.80; @R-foreign], *ggplot2* [Version 3.3.2; @R-ggplot2], *here* [Version 0.1; @R-here], *openxlsx* [Version 4.2.2; @R-openxlsx], *packrat* [@R-packrat], *papaja* [Version 0.1.0.9997; @R-papaja], *purrr* [Version 0.3.4; @R-purrr], *readr* [Version 1.3.1; @R-readr], *rio* [Version 0.5.16; @R-rio], *stringr* [Version 1.4.0; @R-stringr], *tibble* [Version 3.0.3; @R-tibble], *tidyr* [Version 1.1.2; @R-tidyr], and *tidyverse* [Version 1.3.0; @R-tidyverse] for all our analyses.
 
+There was some data gathered and it was neat.
 
 # Results
 
 # Discussion
+
+This fits into @oneil_weapons discussion about math stuff, we think. We didn't actually read it, but liked the name *Weapons of Math Destruction*.
+
+Another article we didn't read investigates children's understanding of math and science, by Lehrer and Schauble [-@lehrer_children]. It seems cool.
 
 
 \newpage
