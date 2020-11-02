@@ -100,6 +100,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -111,7 +125,7 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{What you see is not a tibble}
+\shorttitle{pay no attention to the tibble behind the curtain...}
 \keywords{teacher, experience, lunch, math, scores}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
@@ -160,6 +174,24 @@ This project aims to explore the relationship between teacher experience and stu
 
 \begin{document}
 \maketitle
+
+\begin{verbatim}
+## [1] 5743
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 4 x 6
+## # Groups:   sex [2]
+##   sex   frl   math_mean math_sd rdg_mean rdg_sd
+##   <chr> <chr>     <dbl>   <dbl>    <dbl>  <dbl>
+## 1 boy   no        0.151   0.970    0.148  1.02 
+## 2 boy   yes      -0.330   0.965   -0.358  0.838
+## 3 girl  no        0.326   0.962    0.371  1.09 
+## 4 girl  yes      -0.170   0.969   -0.187  0.863
+\end{verbatim}
+
+\hypertarget{summary-statistics-table}{%
+\section{Summary Statistics Table}\label{summary-statistics-table}}
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
