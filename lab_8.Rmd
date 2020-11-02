@@ -47,7 +47,7 @@ keywords          : "teacher, experience, lunch, math, scores"
 
 bibliography      : ["r-references.bib"]
 
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -82,17 +82,19 @@ library(dplyr)
 star <- import(here("data", "star.csv"))
 ```
 
-``` {r tablecode}
+``` {r tablecode, results = "asis"}
 
 
 star %>% 
   group_by(sex, frl) %>% 
-  
   summarize(math_mean = mean(tmathss),
             math_sd = sd(tmathss),
             read_mean = mean(treadss),
-            read_ss = sd(treadss))
+            read_ss = sd(treadss)) %>%
+  papaja::apa_table()
 ```
+
+\newpage
 
 ``` {r graph}
 
@@ -109,7 +111,6 @@ ggplot(star, aes(totexp, tmathss)) +
 
 ```
 
-# Summary Statistics Table
 
 
 
