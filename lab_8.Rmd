@@ -99,6 +99,20 @@ star %>%
             rdg_sd   = sd(stand_rdg))
 ```
 
+``` {r graph}
+
+ggplot(star, aes(totexp, tmathss)) +
+  geom_point(color = "gray40") +
+  geom_smooth(method = "lm", aes(color = frl)) +
+  labs(x = "Teacher Experience (years)",
+       y = "Total Math Scale Score",
+       title = "Relation between teacher experience and math scores",
+       subtitle = "Separate regression lines displayed by free/reduced lunch status") +
+  theme(legend.position = "bottom")
+
+
+```
+
 # Summary Statistics Table
 
 
