@@ -111,7 +111,7 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{What you see is not a tibble}
+\shorttitle{pay no attention to the tibble behind the curtain}
 \keywords{teacher, experience, lunch, math, scores}
 \DeclareDelayedFloatFlavor{ThreePartTable}{table}
 \DeclareDelayedFloatFlavor{lltable}{table}
@@ -160,6 +160,38 @@ This project aims to explore the relationship between teacher experience and stu
 
 \begin{document}
 \maketitle
+
+\begin{verbatim}
+## Warning: package 'here' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'rio' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{verbatim}
+## [1] 5743
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 4 x 6
+## # Groups:   sex [2]
+##   sex   frl   math_mean math_sd rdg_mean rdg_sd
+##   <chr> <chr>     <dbl>   <dbl>    <dbl>  <dbl>
+## 1 boy   no        0.151   0.970    0.148  1.02 
+## 2 boy   yes      -0.330   0.965   -0.358  0.838
+## 3 girl  no        0.326   0.962    0.371  1.09 
+## 4 girl  yes      -0.170   0.969   -0.187  0.863
+\end{verbatim}
+
+\includegraphics{lab_8_files/figure-latex/graph-1.pdf}
+
+\hypertarget{summary-statistics-table}{%
+\section{Summary Statistics Table}\label{summary-statistics-table}}
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
