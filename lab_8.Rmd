@@ -74,6 +74,31 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.height = 8)
 ```
 
+``` {r loading in data}
+library(here)
+star <- import(here("data", "star.csv"))
+```
+
+``` {r tablecode}
+star %>% 
+  filter(tmathss <= mean(tmathss) + 3*sd(tmathss) &
+         tmathss >= mean(tmathss) - 3*sd(tmathss)) %>% 
+  nrow()
+
+star <- star %>% 
+  mutate(stand_math = (tmathss - mean(tmathss)) / sd(tmathss),
+         stand_rdg  = (treadss - mean(treadss)) / sd(treadss))
+
+star %>% 
+  group_by(sex, frl) %>% 
+  summarize(math_mean = mean(stand_math),
+            math_sd   = sd(stand_math),
+            rdg_mean = mean(stand_rdg),
+            rdg_sd   = sd(stand_rdg))
+```
+
+# Summary Statistics Table
+
 
 
 # Methods
