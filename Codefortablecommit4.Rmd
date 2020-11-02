@@ -1,0 +1,32 @@
+---
+title: "Lab8_tablecommit4"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r tablecode1}
+library(here)
+star <- import(here("data", "star.csv"))
+
+star %>% 
+  filter(tmathss <= mean(tmathss) + 3*sd(tmathss) &
+         tmathss >= mean(tmathss) - 3*sd(tmathss)) %>% 
+  nrow()
+
+star <- star %>% 
+  mutate(stand_math = (tmathss - mean(tmathss)) / sd(tmathss),
+         stand_rdg  = (treadss - mean(treadss)) / sd(treadss))
+
+star %>% 
+  group_by(sex, frl) %>% 
+  summarize(stand_math_mean = mean(stand_math),
+            stand_math_sd   = sd(stand_math),
+            stand_rdg_mean = mean(stand_rdg),
+            stand_rdg_sd   = sd(stand_rdg))
+```
+
+
