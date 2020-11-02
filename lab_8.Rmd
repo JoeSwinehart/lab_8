@@ -47,7 +47,7 @@ keywords          : "teacher, experience, lunch, math, scores"
 
 bibliography      : ["r-references.bib"]
 
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -81,11 +81,7 @@ library(tidyverse)
 star <- import(here("data", "star.csv"))
 ```
 
-``` {r tablecode}
-star %>% 
-  filter(tmathss <= mean(tmathss) + 3*sd(tmathss) &
-         tmathss >= mean(tmathss) - 3*sd(tmathss)) %>% 
-  nrow()
+``` {r tablecode, results = "asis"}
 
 star <- star %>% 
   mutate(stand_math = (tmathss - mean(tmathss)) / sd(tmathss),
@@ -93,11 +89,14 @@ star <- star %>%
 
 star %>% 
   group_by(sex, frl) %>% 
-  summarize(math_mean = mean(stand_math),
-            math_sd   = sd(stand_math),
-            rdg_mean = mean(stand_rdg),
-            rdg_sd   = sd(stand_rdg))
+  summarize(math_mean = mean(tmathss),
+            math_sd = sd(tmathss),
+            read_mean = mean(treadss),
+            read_ss = sd(treadss)) %>%
+  papaja::apa_table()
 ```
+
+\newpage
 
 ``` {r graph}
 
@@ -107,14 +106,14 @@ ggplot(star, aes(totexp, tmathss)) +
   labs(x = "Teacher Experience (years)",
        y = "Total Math Scale Score",
        title = "Relation between teacher experience and math scores",
-       subtitle = "Separate regression lines displayed by free/reduced lunch status", 
-       color = "Lunch status") +
-  theme(legend.position = "bottom")
+       subtitle = "Separate regression lines displayed by free/reduced lunch status") +
+  theme(legend.position = "bottom") +
+  guides(fill = "none") +
+  scale_fill_discrete(name = "Lunch status", labels = c("Free/Reduced Price Meals", "Paid Meals"))
 
 
 ```
 
-# Summary Statistics Table
 
 
 
