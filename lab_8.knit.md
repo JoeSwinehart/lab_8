@@ -60,19 +60,9 @@ classoption       : "man"
 output            : papaja::apa6_pdf
 ---
 
-```{r setup, include = FALSE}
-library("papaja")
-r_refs("r-references.bib")
-```
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(echo = FALSE,
-                      eval = TRUE,
-                      fig.width = 6.5,
-                      fig.height = 8)
-```
+
+
 
 
 
@@ -86,7 +76,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 ## Procedure
 
 ## Data analysis
-We used `r cite_r("r-references.bib")` for all our analyses.
+We used R [Version 4.0.2; @R-base] and the R-package *papaja* [Version 0.1.0.9997; @R-papaja] for all our analyses.
 
 
 # Results
