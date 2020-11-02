@@ -1,6 +1,6 @@
 ---
 title             : "Lab 8 Group Committing to github"
-shorttitle        : "What you see is not a tibble"
+shorttitle        : "pay no attention to the tibble behind the curtain"
 
 author: 
   - name          : "Janette Avelar"
