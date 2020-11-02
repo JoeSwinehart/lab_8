@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man]{apa6}
+  man,floatsintext]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -125,18 +125,8 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-<<<<<<< HEAD
 \shorttitle{pay no attention to the tibble behind the curtain...}
-=======
-\shorttitle{pay no attention to the tibble behind the curtain}
->>>>>>> main
 \keywords{teacher, experience, lunch, math, scores}
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
 \usepackage{csquotes}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
@@ -179,51 +169,32 @@ This project aims to explore the relationship between teacher experience and stu
 \begin{document}
 \maketitle
 
-\begin{verbatim}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> main
-=======
-## Warning: package 'here' was built under R version 4.0.3
-\end{verbatim}
+\begin{table}[tbp]
 
-\begin{verbatim}
-## Warning: package 'rio' was built under R version 4.0.3
-\end{verbatim}
+\begin{center}
+\begin{threeparttable}
 
-\begin{verbatim}
-## Warning: package 'tidyverse' was built under R version 4.0.3
-\end{verbatim}
+\caption{\label{tab:tablecode}}
 
-\begin{verbatim}
-<<<<<<< HEAD
->>>>>>> main
-## [1] 5743
-\end{verbatim}
+\begin{tabular}{llllll}
+\toprule
+sex & \multicolumn{1}{c}{frl} & \multicolumn{1}{c}{math\_mean} & \multicolumn{1}{c}{math\_sd} & \multicolumn{1}{c}{read\_mean} & \multicolumn{1}{c}{read\_ss}\\
+\midrule
+boy & no & 492.85 & 46.34 & 441.46 & 32.32\\
+boy & yes & 469.87 & 46.09 & 425.38 & 26.63\\
+girl & no & 501.21 & 45.96 & 448.54 & 34.52\\
+girl & yes & 477.51 & 46.30 & 430.80 & 27.42\\
+\bottomrule
+\end{tabular}
 
-\begin{verbatim}
-=======
->>>>>>> Stashed changes
->>>>>>> main
-## # A tibble: 4 x 6
-## # Groups:   sex [2]
-##   sex   frl   math_mean math_sd rdg_mean rdg_sd
-##   <chr> <chr>     <dbl>   <dbl>    <dbl>  <dbl>
-## 1 boy   no        0.151   0.970    0.148  1.02 
-## 2 boy   yes      -0.330   0.965   -0.358  0.838
-## 3 girl  no        0.326   0.962    0.371  1.09 
-## 4 girl  yes      -0.170   0.969   -0.187  0.863
-\end{verbatim}
+\end{threeparttable}
+\end{center}
 
-<<<<<<< HEAD
-=======
+\end{table}
+
+\newpage
+
 \includegraphics{lab_8_files/figure-latex/graph-1.pdf}
-
->>>>>>> main
-\hypertarget{summary-statistics-table}{%
-\section{Summary Statistics Table}\label{summary-statistics-table}}
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
@@ -242,17 +213,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-<<<<<<< HEAD
 We used R (Version 4.0.2; R Core Team, 2020) and the R-package \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020) for all our analyses.
-=======
-<<<<<<< Updated upstream
-We used R (Version 4.0.2; R Core Team, 2020b) and the R-packages \emph{\}dplyr} {[}@\}R-dplyr{]}, \emph{forcats} (Version 0.5.0; Wickham, 2020a), \emph{foreign} (Version 0.8.80; R Core Team, 2020a), \emph{ggplot2} (Version 3.3.2; Wickham, 2016), \emph{here} (Version 0.1; Müller, 2017), \emph{openxlsx} (Version 4.2.2; Schauberger \& Walker, 2020), \emph{packrat} (Ushey, McPherson, Cheng, Atkins, \& Allaire, 2018), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.4; Henry \& Wickham, 2020), \emph{readr} (Version 1.4.0; Wickham \& Hester, 2020), \emph{rio} (Version 0.5.16; Chan, Chan, Leeper, \& Becker, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019), \emph{tibble} (Version 3.0.4; Müller \& Wickham, 2020), \emph{tidyr} (Version 1.1.2; Wickham, 2020b), and \emph{tidyverse} (Version 1.3.0; Wickham et al., 2019) for all our analyses.
-
-There was some data gathered and it was neat.
-=======
-We used R (Version 4.0.2; R Core Team, 2020b) and the R-packages \emph{\}dplyr} {[}@\}R-dplyr{]}, \emph{forcats} (Version 0.5.0; Wickham, 2020a), \emph{foreign} (Version 0.8.80; R Core Team, 2020a), \emph{ggplot2} (Version 3.3.2; Wickham, 2016), \emph{here} (Version 0.1; Müller, 2017), \emph{openxlsx} (Version 4.2.2; Schauberger \& Walker, 2020), \emph{packrat} (Ushey, McPherson, Cheng, Atkins, \& Allaire, 2018), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), \emph{purrr} (Version 0.3.4; Henry \& Wickham, 2020), \emph{readr} (Version 1.3.1; Wickham \& Hester, 2020), \emph{rio} (Version 0.5.16; Chan, Chan, Leeper, \& Becker, 2018), \emph{stringr} (Version 1.4.0; Wickham, 2019), \emph{tibble} (Version 3.0.3; Müller \& Wickham, 2020), \emph{tidyr} (Version 1.1.2; Wickham, 2020b), and \emph{tidyverse} (Version 1.3.0; Wickham et al., 2019) for all our analyses.
->>>>>>> Stashed changes
->>>>>>> main
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
