@@ -102,7 +102,7 @@ star %>%
 
 ggplot(star, aes(totexp, tmathss)) +
   geom_point(color = "gray40") +
-  geom_smooth(method = "lm", aes(color = frl)) +
+  geom_smooth(method = "lm", aes( color = frl)) +
   labs(x = "Teacher Experience (years)",
        y = "Total Math Scale Score",
        title = "Relation between teacher experience and math scores",
@@ -110,7 +110,7 @@ ggplot(star, aes(totexp, tmathss)) +
        color = "Lunch status") +
   theme(legend.position = "bottom") +
   guides(fill = "none") +
-  scale_fill_discrete(name = "Lunch status", labels = c("Free/Reduced Price Meals", "Paid Meals"))
+  scale_color_discrete(name = "Lunch status", labels = c("Free/Reduced Price Meals", "Paid Meals"))
 
 
 ```
