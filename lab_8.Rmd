@@ -122,19 +122,25 @@ ggplot(star, aes(totexp, tmathss)) +
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
 ## Participants
+There were some people involved.
 
 ## Material
+We are living in a material world.
 
 ## Procedure
+We did things and we did them well. Then we struggled, but persevered.
 
 ## Data analysis
 We used `r cite_r("r-references.bib")` for all our analyses.
-
+There was some data gathered and it was neat.
 
 # Results
+The results won't be known until later tonight or perhaps for weeks.
 
 # Discussion
+This fits into @oneil_weapons discussion about math stuff, we think. We didn't actually read it, but liked the name *Weapons of Math Destruction*.
 
+Another article we didn't read investigates children's understanding of math and science, by Lehrer and Schauble [-@lehrer_children]. It seems cool.
 
 \newpage
 
